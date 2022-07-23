@@ -3,6 +3,7 @@ import { trpc } from '../utils/trpc';
 import { useRouter } from 'next/router';
 import type { UseQueryResult } from 'react-query';
 import type { Comparison } from '../server/router/coin';
+import Link from 'next/link';
 
 const CoinsData: React.FC = () => {
 	const router = useRouter();
@@ -19,6 +20,11 @@ const CoinsData: React.FC = () => {
 		return (
 			<>
 				<main className="container mx-auto flex flex-col items-center justify-center h-screen p-4">
+					<Link href="/">
+						<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+							Home
+						</button>
+					</Link>
 					<h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
 						More Coin Info
 					</h1>
