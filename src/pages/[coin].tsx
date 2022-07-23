@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import type { UseQueryResult } from 'react-query';
 import type { Comparison } from '../server/router/coin';
 
-const coinsData = () => {
+const coinsData: React.FC = () => {
 	const router = useRouter();
 	const exchangeRates = trpc.useQuery([
 		'coin.getExchangeRate',
@@ -72,5 +72,6 @@ const coinsData = () => {
 				</main>
 			</>
 		);
+	return <p>loading</p>;
 };
 export default coinsData;
