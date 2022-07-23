@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import type { UseQueryResult } from 'react-query';
 import type { Comparison } from '../server/router/coin';
 
-const coinsData: React.FC = () => {
+const CoinsData: React.FC = () => {
 	const router = useRouter();
 	const exchangeRates = trpc.useQuery([
 		'coin.getExchangeRate',
@@ -49,8 +49,8 @@ const coinsData: React.FC = () => {
 									>
 										<option selected>Compare Assets</option>
 
-										{exchangeRates.data.rates.map((rate) => (
-											<option value={rate.asset_id_quote}>
+										{exchangeRates.data.rates.map((rate, idx) => (
+											<option key={idx} value={rate.asset_id_quote}>
 												{rate.asset_id_quote}
 											</option>
 										))}
@@ -74,4 +74,4 @@ const coinsData: React.FC = () => {
 		);
 	return <p>loading</p>;
 };
-export default coinsData;
+export default CoinsData;
